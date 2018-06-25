@@ -1,0 +1,46 @@
+  <div id="{{ sentiment_type }}-sentiment"></div>
+    <script type="text/javascript">
+            Highcharts.chart('{{ sentiment_type }}-sentiment', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: '{{ sentiment_type }} Senitment for {{ query }}'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Tweets',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Positive',
+                        y: {{ sentiment_percentage.positive }},
+                        sliced: true,
+                        selected: true
+                    }, {
+                        name: 'Negative',
+                        y: {{ sentiment_percentage.negative }}
+                    }, {
+                        name: 'Neutral',
+                        y: {{ sentiment_percentage.neutral }}
+                    }]
+                }]
+            });
+    </script>

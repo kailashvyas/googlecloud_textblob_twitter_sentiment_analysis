@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome to Twitter Senitment Analysis</h1>
+  </div>
+
+  <p>Please enter a twitter search eg: trump, macron</p>
+
+  <form method="GET" action="{{ url_for('tweets') }}">
+	  <div class="form-group">
+	    <label for="search">Search</label>
+	    <input name="search" type="text" class="form-control" id="search" aria-describedby="searchHelp" placeholder="Enter Search">
+	  </div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock %}
