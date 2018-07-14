@@ -1,0 +1,8 @@
+Flask==0.12.2
+gunicorn==19.8.1
+Jinja2==2.10
+Quandl==3.3.0
+requests==2.18.4
+google-cloud==0.33.1
+tweepy==3.6.0
+textblob==0.15.1
